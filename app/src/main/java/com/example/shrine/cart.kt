@@ -1,19 +1,14 @@
 package com.example.shrine
 
-import android.widget.Button
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.KeyboardArrowDown
-import androidx.compose.material.icons.filled.KeyboardArrowLeft
-import androidx.compose.material.icons.outlined.ArrowDropDown
 import androidx.compose.material.icons.outlined.RemoveCircleOutline
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.scale
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -21,8 +16,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.shrine.ui.theme.ShrineTheme
-import com.example.shrine.ui.theme.shrinePink900
-import org.w3c.dom.Text
 
 @Composable
 fun Cart(modifier: Modifier = Modifier) {
@@ -39,36 +32,53 @@ fun Cart(modifier: Modifier = Modifier) {
 
 
 
-                    Row(verticalAlignment = Alignment.CenterVertically) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
 
-                        IconButton(onClick = { /*TODO*/ }) {
-                            Icon(
-                                imageVector = Icons.Outlined.RemoveCircleOutline,
-                                contentDescription = "RemoveItem"
+                    IconButton(onClick = { /*TODO*/ }) {
+                        Icon(
+                            imageVector = Icons.Outlined.RemoveCircleOutline,
+                            contentDescription = "RemoveItem"
+                        )
+                    }
+
+                    Column() {
+                        Divider(color = MaterialTheme.colors.onSecondary.copy(alpha = 0.3f))
+
+                        Row(Modifier.padding(vertical = 16.dp)) {
+                            Image(
+                                painter = painterResource(id = R.drawable.img),
+                                contentDescription = "Images",
+                                modifier = Modifier
+                                    .size(80.dp)
+                                    .padding(top = 8.dp),
+                                contentScale = ContentScale.FillBounds
+
                             )
-                        }
+                            Spacer(modifier = Modifier.width(24.dp))
 
-                        Column() {
-                            Divider(color = MaterialTheme.colors.onSecondary.copy(alpha = 0.3f))
+                            Column(modifier = Modifier.padding(end = 16.dp)) {
+                                Row(
+                                    modifier = Modifier
+                                        .fillMaxWidth(),
+                                    horizontalArrangement = Arrangement.SpaceBetween
+                                ) {
+                                    Text(text = "$40", style = MaterialTheme.typography.body2)
+                                    Text(text = "LMBRJK", style = MaterialTheme.typography.body2)
 
-                            Row(Modifier.padding(vertical = 16.dp)){
-                                Image(
-                                    painter = painterResource(id = R.drawable.img),
-                                    contentDescription = "Images",
-                                    modifier = Modifier.size(80.dp).padding(top = 8.dp),
-                                    contentScale = ContentScale.FillBounds
-
-                                )
-                                Spacer(modifier = Modifier.width(24.dp))
-
-                                Column {
-                                    Row(modifier = Modifier.fillMaxWidth().padding(end = 16.dp), horizontalArrangement = Arrangement.SpaceBetween) {
-                                        Text(text = "LMBRJK" , style = MaterialTheme.typography.body2)
-                                        Text(text = "$40" , style = MaterialTheme.typography.body2)
-
-                                    }
                                 }
 
+                                Text("Gatsby Hat", style = MaterialTheme.typography.subtitle2)
+                                Row(
+                                    Modifier
+                                        .padding(vertical = 16.dp)
+                                        .fillMaxWidth(),
+                                    horizontalArrangement = Arrangement.SpaceBetween
+                                ) {
+                                    Divider(Modifier.width(80.dp))
+                                    Divider(Modifier.width(80.dp))
+
+
+                                }
 
                             }
 
@@ -76,6 +86,7 @@ fun Cart(modifier: Modifier = Modifier) {
                         }
 
 
+                    }
 
 
                 }
