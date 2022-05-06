@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Shrine</string>
+
+    <string name="btn_proceed">Proceed to Checkout</string>
 </resources>
